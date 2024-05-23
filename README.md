@@ -14,3 +14,34 @@ const add = (a: num, b: num) {
   }
 }
 ```
+
+#### instanceof
+```ts
+class Box {
+  private side: number = 10;
+
+  getSide = (): number => {
+    return this.side;
+  }
+}
+
+class Circle {
+  private radius: number = 10;
+
+  getRadius = (): number => {
+    return this.radius;
+  }
+}
+
+type Figure = Box | Circle;
+
+const render = (figure: Figure) => {
+  let size: number = 0;
+
+  if (figure instanceof Box) {
+    size = figure.getSide();  // figure - Box
+  } else if (figure instanceof Circle) {
+    size = figure.getRadius(); // figure - Circle
+  }
+}
+```
