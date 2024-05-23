@@ -71,3 +71,10 @@ const check = (a: number | string, b: number) => {
   }
 }
 ```
+
+#### user-defined
+```ts
+const isBox = (figure: Figure): figure is Box => {
+  return figure instanceof Box;
+}
+```
