@@ -40,8 +40,34 @@ const render = (figure: Figure) => {
 
   if (figure instanceof Box) {
     size = figure.getSide();  // figure - Box
-  } else if (figure instanceof Circle) {
+  }
+  if (figure instanceof Circle) {
     size = figure.getRadius(); // figure - Circle
+  }
+}
+```
+
+#### in type
+```ts
+const render = (figure: Figure) => {
+  let size: number = 0;
+
+  if ('getSide' in figure) {
+    size = figure.getSide(); // figure - Box
+  }
+  if ('getRadius' in figure) {
+    size = figure.getRadius(); // figure - Circle
+  }
+}
+```
+
+#### equality narrowing
+```ts
+const check = (a: number | string, b: number) => {
+  if (a === b) {
+    // a - number because b - number
+  } else {
+    // a - number | string
   }
 }
 ```
